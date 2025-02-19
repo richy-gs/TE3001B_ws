@@ -1,0 +1,9 @@
+# Ignore build and install directories
+/build
+/install
+/log
+
+# Ignore ROS 2 workspace specific directories
+/.vscode
+*.swp
+
