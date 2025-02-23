@@ -1,0 +1,6 @@
+motor_sys:
+  ros__parameters:
+    sample_time: 0.01
+    sys_gain_K: 2.16
+    sys_tau_T: 0.05
+    initial_conditions: 0.0
