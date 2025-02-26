@@ -1,4 +1,5 @@
 import rclpy
+from custom_interfaces.srv import SetProcessBool
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.node import Node
 from std_msgs.msg import Float32
@@ -7,6 +8,9 @@ from std_msgs.msg import Float32
 class ControllerNode(Node):
     def __init__(self):
         super().__init__("ctrl_node")
+
+        # Variable of control for Server
+        self.simulation_running = False
 
         # Declare parameters with default values
         self.declare_parameter("Kp", 7.5)
@@ -39,6 +43,11 @@ class ControllerNode(Node):
             Float32, "set_point", self.set_point_callback, 10
         )
 
+        # Set Server callback
+        self.srv = self.create_service(
+            SetProcessBool, "EnableProcess_ctrl", self.simulation_service_callback
+        )
+
         # Variable to store the set point and system output
         self.set_point = 0.0
         self.motor_output = 0.0
@@ -61,6 +70,10 @@ class ControllerNode(Node):
         self.set_point = msg.data
 
     def timer_callback(self):
+        # Stop processing if simulation is not running
+        if not self.simulation_running:
+            return
+
         """Called periodically to compute and publish the control input."""
         error = self.set_point - self.motor_output
         self.integral += error * self.sampling_time
@@ -118,6 +131,20 @@ class ControllerNode(Node):
                     self.get_logger().info(f"Kd value updated to {self.param_Kd}")
 
         return SetParametersResult(successful=True)
+
+    def simulation_service_callback(self, request, response):
+        if request.enable:
+            self.simulation_running = True
+            self.get_logger().info("\U0001f680 Simulation Started")
+            response.success = True
+            response.message = "Simulation Started Successfully"
+        else:
+            self.simulation_running = False
+            self.get_logger().info("\U0001f534 Simulation Stopped")
+            response.success = True
+            response.message = "Simulation Stopped Successfully"
+
+        return response
 
 
 def main(args=None):

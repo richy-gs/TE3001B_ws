@@ -11,8 +11,8 @@ def generate_launch_description():
         output="screen",
         parameters=[
             {
-                "sample_time": 0.02,
-                "sys_gain_K": 1.78,
+                "sample_time": 0.01,
+                "sys_gain_K": 1.75,
                 "sys_tau_T": 0.5,
                 "initial_conditions": 0.0,
             }

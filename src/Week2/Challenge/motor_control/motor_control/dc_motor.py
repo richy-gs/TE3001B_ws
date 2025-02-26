@@ -1,5 +1,6 @@
 # Imports
 import rclpy
+from custom_interfaces.srv import SetProcessBool
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.node import Node
 from std_msgs.msg import Float32
@@ -9,6 +10,9 @@ from std_msgs.msg import Float32
 class DCMotor(Node):
     def __init__(self):
         super().__init__("dc_motor")
+
+        # Varible of control for Client Service
+        self.simulation_running = False
 
         # Declare parameters
         # System sample time in seconds
@@ -40,6 +44,11 @@ class DCMotor(Node):
         self.motor_speed_pub = self.create_publisher(Float32, "motor_speed_y", 10)
         self.timer = self.create_timer(self.sample_time, self.timer_cb)
 
+        # Set Server callback
+        self.srv = self.create_service(
+            SetProcessBool, "EnableProcess_dc_motor", self.simulation_service_callback
+        )
+
         # Parameter Callback
         self.add_on_set_parameters_callback(self.parameters_callback)
 
@@ -48,6 +57,9 @@ class DCMotor(Node):
 
     # Timer Callback
     def timer_cb(self):
+        if not self.simulation_running:
+            return
+
         # DC Motor Simulation
         # DC Motor Equation 𝑦[𝑘+1] = 𝑦[𝑘] + ((−1/𝜏) 𝑦[𝑘] + (𝐾/𝜏) 𝑢[𝑘]) 𝑇_𝑠
         self.output_y += (
@@ -89,6 +101,20 @@ class DCMotor(Node):
                     self.get_logger().info(f"sys_tau_T updated to {self.param_T}")
 
         return SetParametersResult(successful=True)
+
+    def simulation_service_callback(self, request, response):
+        if request.enable:
+            self.simulation_running = True
+            self.get_logger().info("\U0001f680 Simulation Started")
+            response.success = True
+            response.message = "Simulation Started Successfully"
+        else:
+            self.simulation_running = False
+            self.get_logger().info("\U0001f534 Simulation Stopped")
+            response.success = True
+            response.message = "Simulation Stopped Successfully"
+
+        return response
 
 
 # Main
