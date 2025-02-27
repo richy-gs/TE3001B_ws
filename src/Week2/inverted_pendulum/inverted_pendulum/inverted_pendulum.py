@@ -8,7 +8,7 @@ from std_msgs.msg import Float32
 
 class Dynamics(Node):
     def __init__(self):
-        super().__init__("linear_pendulum_dynamics")
+        super().__init__("inv_pendulum_dynamics")
 
         # constants
         self.g = 9.8

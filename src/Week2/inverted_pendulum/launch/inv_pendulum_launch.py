@@ -42,9 +42,9 @@ def generate_launch_description():
         namespace="carro",
         parameters=[
             {
-                "Kp": 1.0,
+                "Kp": 1.2,
                 "Ki": 0.0,
-                "Kd": 0.0,
+                "Kd": 4.0,
             }
         ],
     )
@@ -58,9 +58,9 @@ def generate_launch_description():
         namespace="angle",
         parameters=[
             {
-                "Kp": 1.0,
+                "Kp": 1.5,
                 "Ki": 0.0,
-                "Kd": 0.0,
+                "Kd": 0.5,
             }
         ],
     )

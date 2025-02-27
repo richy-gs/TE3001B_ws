@@ -33,7 +33,7 @@ setup(
             "set_point = inverted_pendulum.set_point:main",
             "controller = inverted_pendulum.controller:main",
             "sumador = inverted_pendulum.sumador:main",
-            "inverted_pendulum = inverted_pendulum.inverted_pendulum:main",
+            "inverted_pendulum = inverted_pendulum.inverted_pendulum_v2:main",
         ],
     },
 )

@@ -20,7 +20,7 @@ class SetPointPublisher(Node):
             self.get_parameter("amplitude").get_parameter_value().double_value
         )
 
-        self.declare_parameter("omega", 1.0)
+        self.declare_parameter("omega", 0.125)
         self.omega = self.get_parameter("omega").get_parameter_value().double_value
 
         self.timer_period = 0.1  # seconds

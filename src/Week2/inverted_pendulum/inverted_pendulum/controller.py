@@ -12,8 +12,8 @@ class ControllerNode(Node):
         self.declare_parameter("Kp", 7.5)
         self.declare_parameter("Ki", 7.0)
         self.declare_parameter("Kd", 0.01)
-        self.declare_parameter("sampling_time", 0.05)
-        self.declare_parameter("rate", 150)  # Rate in Hz
+        self.declare_parameter("sampling_time", 0.01)
+        self.declare_parameter("rate", 160)  # Rate in Hz
 
         self.Kp = self.get_parameter("Kp").get_parameter_value().double_value
         self.Ki = self.get_parameter("Ki").get_parameter_value().double_value
@@ -90,8 +90,8 @@ class ControllerNode(Node):
                         successful=False, reason="Kp value cannot be negative"
                     )
                 else:
-                    self.param_Kp = param.value  # Update internal variable
-                    self.get_logger().info(f"Kp value updated to {self.param_Kp}")
+                    self.Kp = param.value  # Update internal variable
+                    self.get_logger().info(f"Kp value updated to {self.Kp}")
 
             # system gain parameter check
             if param.name == "Ki":
@@ -102,8 +102,8 @@ class ControllerNode(Node):
                         successful=False, reason="Ki value cannot be negative"
                     )
                 else:
-                    self.param_Ki = param.value  # Update internal variable
-                    self.get_logger().info(f"Ki value updated to {self.param_Ki}")
+                    self.Ki = param.value  # Update internal variable
+                    self.get_logger().info(f"Ki value updated to {self.Ki}")
 
                     # system gain parameter check
             if param.name == "Kd":
@@ -114,8 +114,8 @@ class ControllerNode(Node):
                         successful=False, reason="Kd value cannot be negative"
                     )
                 else:
-                    self.param_Kd = param.value  # Update internal variable
-                    self.get_logger().info(f"Kd value updated to {self.param_Kd}")
+                    self.Kd = param.value  # Update internal variable
+                    self.get_logger().info(f"Kd value updated to {self.Kd}")
 
         return SetParametersResult(successful=True)
 
