@@ -24,8 +24,12 @@ This 5-week course, developed by Manchester Robotics Ltd. (MCR2), introduces fun
 
 - **Course duration**: 5 weeks (Starting: 10th Feb)
 - **Instructors**:
+
   - MCR2: Dr. Mario Martinez
   - Tecnológico de Monterrey: Dr. Luis Alberto Munoz
+
+- **Student**:
+  - Ricardo Guerrero
 
 ### Sessions
 
