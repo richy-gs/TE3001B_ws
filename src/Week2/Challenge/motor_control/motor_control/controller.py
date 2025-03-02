@@ -103,8 +103,8 @@ class ControllerNode(Node):
                         successful=False, reason="Kp value cannot be negative"
                     )
                 else:
-                    self.param_Kp = param.value  # Update internal variable
-                    self.get_logger().info(f"Kp value updated to {self.param_Kp}")
+                    self.Kp = param.value  # Update internal variable
+                    self.get_logger().info(f"Kp value updated to {self.Kp}")
 
             # system gain parameter check
             if param.name == "Ki":
@@ -115,8 +115,8 @@ class ControllerNode(Node):
                         successful=False, reason="Ki value cannot be negative"
                     )
                 else:
-                    self.param_Ki = param.value  # Update internal variable
-                    self.get_logger().info(f"Ki value updated to {self.param_Ki}")
+                    self.Ki = param.value  # Update internal variable
+                    self.get_logger().info(f"Ki value updated to {self.Ki}")
 
                     # system gain parameter check
             if param.name == "Kd":
@@ -127,8 +127,8 @@ class ControllerNode(Node):
                         successful=False, reason="Kd value cannot be negative"
                     )
                 else:
-                    self.param_Kd = param.value  # Update internal variable
-                    self.get_logger().info(f"Kd value updated to {self.param_Kd}")
+                    self.Kd = param.value  # Update internal variable
+                    self.get_logger().info(f"Kd value updated to {self.Kd}")
 
         return SetParametersResult(successful=True)
 

@@ -28,11 +28,11 @@ class ControllerNode(Node):
         self.integral = 0
 
         # Publisher for motor input control signal
-        self.motor_input_pub = self.create_publisher(Float32, "input_u", 10)
+        self.inv_pendulum_input_pub = self.create_publisher(Float32, "input_u", 10)
 
         # Subscribers for motor output and set point
-        self.motor_output_sub = self.create_subscription(
-            Float32, "output_y", self.motor_output_callback, 10
+        self.inv_pendulum_output_sub = self.create_subscription(
+            Float32, "output_y", self.inv_pendulum_output_callback, 10
         )
 
         self.set_point_sub = self.create_subscription(
@@ -41,7 +41,7 @@ class ControllerNode(Node):
 
         # Variable to store the set point and system output
         self.set_point = 0.0
-        self.motor_output = 0.0
+        self.inv_pendulum_output = 0.0
 
         # Timer to control the sampling rate
         self.create_timer(1.0 / self.rate, self.timer_callback)
@@ -52,9 +52,9 @@ class ControllerNode(Node):
         # Node Started
         self.get_logger().info("Controller Node Started \U0001f680")
 
-    def motor_output_callback(self, msg):
+    def inv_pendulum_output_callback(self, msg):
         """Callback for motor system output."""
-        self.motor_output = msg.data
+        self.inv_pendulum_output = msg.data
 
     def set_point_callback(self, msg):
         """Callback for set point."""
@@ -62,7 +62,7 @@ class ControllerNode(Node):
 
     def timer_callback(self):
         """Called periodically to compute and publish the control input."""
-        error = self.set_point - self.motor_output
+        error = self.set_point - self.inv_pendulum_output
         self.integral += error * self.sampling_time
         derivative = (error - self.prev_error) / self.sampling_time
 
@@ -74,7 +74,7 @@ class ControllerNode(Node):
         # Publish the control input
         control_msg = Float32()
         control_msg.data = control_signal
-        self.motor_input_pub.publish(control_msg)
+        self.inv_pendulum_input_pub.publish(control_msg)
 
         # Update the previous error
         self.prev_error = error
