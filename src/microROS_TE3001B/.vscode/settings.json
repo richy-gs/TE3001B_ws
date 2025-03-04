@@ -1,0 +1,26 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/roli_005/TE3001B_ws/install/signal_processing/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/motor_control_act/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/motor_control/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/inverted_pendulum/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/custom_interfaces_act/local/lib/python3.10/dist-packages",
+        "/home/roli_005/TE3001B_ws/install/custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/roli_005/TE3001B_ws/install/basic_comms/lib/python3.10/site-packages",
+        "/home/roli_005/uros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/roli_005/TE3001B_ws/install/signal_processing/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/motor_control_act/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/motor_control/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/inverted_pendulum/lib/python3.10/site-packages",
+        "/home/roli_005/TE3001B_ws/install/custom_interfaces_act/local/lib/python3.10/dist-packages",
+        "/home/roli_005/TE3001B_ws/install/custom_interfaces/local/lib/python3.10/dist-packages",
+        "/home/roli_005/TE3001B_ws/install/basic_comms/lib/python3.10/site-packages",
+        "/home/roli_005/uros_ws/install/micro_ros_msgs/local/lib/python3.10/dist-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
+}
