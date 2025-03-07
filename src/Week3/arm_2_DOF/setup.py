@@ -32,6 +32,7 @@ setup(
         "console_scripts": [
             "set_point = arm_2_DOF.set_point:main",
             "controller = arm_2_DOF.controller:main",
+            "arm_sys = arm_2_DOF.arm_sys:main",
         ],
     },
 )

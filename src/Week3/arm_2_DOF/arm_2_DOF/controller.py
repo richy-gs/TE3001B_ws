@@ -1,121 +1,126 @@
 import rclpy
 from rcl_interfaces.msg import SetParametersResult
 from rclpy.node import Node
-from std_msgs.msg import Float32
+from std_msgs.msg import Float32MultiArray
 
 
 class ControllerNode(Node):
     def __init__(self):
         super().__init__("ctrl_node")
 
-        # Declare parameters with default values
-        self.declare_parameter("Kp", 7.5)
-        self.declare_parameter("Ki", 7.0)
-        self.declare_parameter("Kd", 0.01)
-        self.declare_parameter("sampling_time", 0.05)
-        self.declare_parameter("rate", 150)  # Rate in Hz
+        # Declarar parámetros para cada eslabón
+        self.declare_parameter("Kp_q1", 160.0)
+        self.declare_parameter("Ki_q1", 0.3)
+        self.declare_parameter("Kd_q1", 45.0)
 
-        self.Kp = self.get_parameter("Kp").get_parameter_value().double_value
-        self.Ki = self.get_parameter("Ki").get_parameter_value().double_value
-        self.Kd = self.get_parameter("Kd").get_parameter_value().double_value
+        self.declare_parameter("Kp_q2", 10.55)
+        self.declare_parameter("Ki_q2", 0.002)
+        self.declare_parameter("Kd_q2", 1.0)
+
+        self.declare_parameter("sampling_time", 0.05)
+        self.declare_parameter("rate", 50)  # Frecuencia en Hz
+
+        # Obtener valores de los parámetros
+        self.Kp = [
+            self.get_parameter("Kp_q1").get_parameter_value().double_value,
+            self.get_parameter("Kp_q2").get_parameter_value().double_value,
+        ]
+        self.Ki = [
+            self.get_parameter("Ki_q1").get_parameter_value().double_value,
+            self.get_parameter("Ki_q2").get_parameter_value().double_value,
+        ]
+        self.Kd = [
+            self.get_parameter("Kd_q1").get_parameter_value().double_value,
+            self.get_parameter("Kd_q2").get_parameter_value().double_value,
+        ]
         self.sampling_time = (
             self.get_parameter("sampling_time").get_parameter_value().double_value
         )
         self.rate = self.get_parameter("rate").get_parameter_value().integer_value
 
-        # Variables for the PID controller
-        self.prev_error = 0
-        self.integral = 0
+        # Variables del PID para cada eslabón
+        self.prev_error = [0.0, 0.0]
+        self.integral = [0.0, 0.0]
 
-        # Publisher for motor input control signal
-        self.motor_input_pub = self.create_publisher(Float32, "motor_input_u", 10)
+        # Publicador para el torque de control
+        self.torque_pub = self.create_publisher(Float32MultiArray, "/tau", 10)
 
-        # Subscribers for motor output and set point
-        self.motor_output_sub = self.create_subscription(
-            Float32, "motor_speed_y", self.motor_output_callback, 10
+        # Suscriptores para el estado articular y referencia
+        self.joint_state_sub = self.create_subscription(
+            Float32MultiArray, "/joint_states", self.joint_state_callback, 10
         )
-
         self.set_point_sub = self.create_subscription(
-            Float32, "set_point", self.set_point_callback, 10
+            Float32MultiArray, "/set_point", self.set_point_callback, 10
         )
 
-        # Variable to store the set point and system output
-        self.set_point = 0.0
-        self.motor_output = 0.0
+        # Variables para almacenar referencia y estados actuales
+        self.q = [0.0, 0.0]  # Ángulos actuales
+        self.qd = [0.8, 0.5]  # Referencia
 
-        # Timer to control the sampling rate
+        # Timer para la actualización del control
         self.create_timer(1.0 / self.rate, self.timer_callback)
 
-        # Parameter Callback
+        # Callback de parámetros dinámicos
         self.add_on_set_parameters_callback(self.parameters_callback)
 
-        # Node Started
-        self.get_logger().info("Controller Node Started \U0001f680")
+        self.get_logger().info("Controller Node Started 🚀")
 
-    def motor_output_callback(self, msg):
-        """Callback for motor system output."""
-        self.motor_output = msg.data
+    def joint_state_callback(self, msg):
+        """Callback para recibir los ángulos actuales del brazo."""
+        if len(msg.data) == 2:
+            self.q = list(msg.data)
 
     def set_point_callback(self, msg):
-        """Callback for set point."""
-        self.set_point = msg.data
+        """Callback para recibir la referencia deseada."""
+        if len(msg.data) == 2:
+            self.qd = list(msg.data)
 
     def timer_callback(self):
-        """Called periodically to compute and publish the control input."""
-        error = self.set_point - self.motor_output
-        self.integral += error * self.sampling_time
-        derivative = (error - self.prev_error) / self.sampling_time
+        """Calcula la señal de control y publica el torque."""
+        error = [self.qd[i] - self.q[i] for i in range(2)]
+        self.integral = [
+            self.integral[i] + error[i] * self.sampling_time for i in range(2)
+        ]
+        derivative = [
+            (error[i] - self.prev_error[i]) / self.sampling_time for i in range(2)
+        ]
 
-        # Compute PID control signal
-        control_signal = (
-            self.Kp * error + self.Ki * self.integral + self.Kd * derivative
-        )
+        # Calcular la señal de control PID con los parámetros de cada eslabón
+        tau = [
+            self.Kp[i] * error[i]
+            + self.Ki[i] * self.integral[i]
+            + self.Kd[i] * derivative[i]
+            for i in range(2)
+        ]
 
-        # Publish the control input
-        control_msg = Float32()
-        control_msg.data = control_signal
-        self.motor_input_pub.publish(control_msg)
+        # Publicar el torque
+        msg = Float32MultiArray()
+        msg.data = tau
+        self.torque_pub.publish(msg)
 
-        # Update the previous error
+        # Actualizar error anterior
         self.prev_error = error
 
     def parameters_callback(self, params):
+        """Callback para actualizar los parámetros PID en tiempo real."""
         for param in params:
-            # system gain parameter check
-            if param.name == "Kp":
-                # check if it is negative
+            if param.name in ["Kp_q1", "Ki_q1", "Kd_q1", "Kp_q2", "Ki_q2", "Kd_q2"]:
+                idx = 0 if "q1" in param.name else 1
                 if param.value < 0.0:
-                    self.get_logger().warn("Invalid Kp value! It cannot be negative.")
+                    self.get_logger().warn(
+                        f"Invalid {param.name} value! It cannot be negative."
+                    )
                     return SetParametersResult(
-                        successful=False, reason="Kp value cannot be negative"
+                        successful=False, reason=f"{param.name} cannot be negative"
                     )
                 else:
-                    self.Kp = param.value  # Update internal variable
-                    self.get_logger().info(f"Kp value updated to {self.Kp}")
-
-            # system gain parameter check
-            if param.name == "Ki":
-                # check if it is negative
-                if param.value < 0.0:
-                    self.get_logger().warn("Invalid Ki value! It cannot be negative.")
-                    return SetParametersResult(
-                        successful=False, reason="Ki value cannot be negative"
-                    )
-                else:
-                    self.Ki = param.value  # Update internal variable
-                    self.get_logger().info(f"Ki value updated to {self.Ki}")
-
-                    # system gain parameter check
-            if param.name == "Kd":
-                # check if it is negative
-                if param.value < 0.0:
-                    self.get_logger().warn("Invalid Kd value! It cannot be negative.")
-                    return SetParametersResult(
-                        successful=False, reason="Kd value cannot be negative"
-                    )
-                else:
-                    self.Kd = param.value  # Update internal variable
-                    self.get_logger().info(f"Kd value updated to {self.Kd}")
+                    if "Kp" in param.name:
+                        self.Kp[idx] = param.value
+                    elif "Ki" in param.name:
+                        self.Ki[idx] = param.value
+                    elif "Kd" in param.name:
+                        self.Kd[idx] = param.value
+                    self.get_logger().info(f"{param.name} updated to {param.value}")
 
         return SetParametersResult(successful=True)
 
@@ -125,11 +130,9 @@ def main(args=None):
     controller_node = ControllerNode()
 
     try:
-        # Spin the node to handle callbacks
         rclpy.spin(controller_node)
     except KeyboardInterrupt:
         pass
-
     finally:
         controller_node.destroy_node()
         rclpy.shutdown()
