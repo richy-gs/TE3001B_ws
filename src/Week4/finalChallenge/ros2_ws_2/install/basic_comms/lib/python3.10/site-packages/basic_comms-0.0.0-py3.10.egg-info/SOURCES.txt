@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/basic_comms/basic_comms.egg-info/PKG-INFO
+../../build/basic_comms/basic_comms.egg-info/SOURCES.txt
+../../build/basic_comms/basic_comms.egg-info/dependency_links.txt
+../../build/basic_comms/basic_comms.egg-info/entry_points.txt
+../../build/basic_comms/basic_comms.egg-info/requires.txt
+../../build/basic_comms/basic_comms.egg-info/top_level.txt
+../../build/basic_comms/basic_comms.egg-info/zip-safe
+basic_comms/__init__.py
+basic_comms/talker.py
+resource/basic_comms
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py

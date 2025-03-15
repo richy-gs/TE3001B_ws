@@ -1,0 +1,5 @@
+[console_scripts]
+ctrl = motor_control.controller:main
+dc_motor = motor_control.dc_motor:main
+set_point = motor_control.set_point:main
+

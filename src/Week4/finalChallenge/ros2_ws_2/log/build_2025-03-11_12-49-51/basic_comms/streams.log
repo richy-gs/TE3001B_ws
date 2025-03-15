@@ -1,0 +1,19 @@
+[0.625s] Invoking command in '/home/idmx/ros2_ws_2/build/basic_comms': PYTHONPATH=/home/idmx/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/basic_comms/build --no-deps symlink_data --force
+[0.813s] running develop
+[0.927s] running egg_info
+[0.927s] writing basic_comms.egg-info/PKG-INFO
+[0.928s] writing dependency_links to basic_comms.egg-info/dependency_links.txt
+[0.928s] writing entry points to basic_comms.egg-info/entry_points.txt
+[0.928s] writing requirements to basic_comms.egg-info/requires.txt
+[0.928s] writing top-level names to basic_comms.egg-info/top_level.txt
+[0.929s] reading manifest file 'basic_comms.egg-info/SOURCES.txt'
+[0.930s] writing manifest file 'basic_comms.egg-info/SOURCES.txt'
+[0.931s] running build_ext
+[0.931s] Creating /home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic-comms.egg-link (link to .)
+[0.931s] Installing talker script to /home/idmx/ros2_ws_2/install/basic_comms/lib/basic_comms
+[0.931s] 
+[0.931s] Installed /home/idmx/ros2_ws_2/build/basic_comms
+[0.931s] running symlink_data
+[0.932s] symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/resource/basic_comms -> /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index/resource_index/packages
+[0.932s] symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/package.xml -> /home/idmx/ros2_ws_2/install/basic_comms/share/basic_comms
+[0.958s] Invoked command in '/home/idmx/ros2_ws_2/build/basic_comms' returned '0': PYTHONPATH=/home/idmx/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/basic_comms/build --no-deps symlink_data --force

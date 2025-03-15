@@ -1,0 +1,24 @@
+[0.583s] Invoking command in '/home/idmx/ros2_ws_2/build/basic_comms': PYTHONPATH=/home/idmx/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/basic_comms/build --no-deps symlink_data
+[0.758s] running develop
+[0.866s] running egg_info
+[0.866s] creating basic_comms.egg-info
+[0.866s] writing basic_comms.egg-info/PKG-INFO
+[0.867s] writing dependency_links to basic_comms.egg-info/dependency_links.txt
+[0.867s] writing entry points to basic_comms.egg-info/entry_points.txt
+[0.867s] writing requirements to basic_comms.egg-info/requires.txt
+[0.867s] writing top-level names to basic_comms.egg-info/top_level.txt
+[0.867s] writing manifest file 'basic_comms.egg-info/SOURCES.txt'
+[0.868s] reading manifest file 'basic_comms.egg-info/SOURCES.txt'
+[0.869s] writing manifest file 'basic_comms.egg-info/SOURCES.txt'
+[0.869s] running build_ext
+[0.870s] Creating /home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic-comms.egg-link (link to .)
+[0.870s] Installing talker script to /home/idmx/ros2_ws_2/install/basic_comms/lib/basic_comms
+[0.870s] 
+[0.870s] Installed /home/idmx/ros2_ws_2/build/basic_comms
+[0.870s] running symlink_data
+[0.871s] creating /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index
+[0.871s] creating /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index/resource_index
+[0.871s] creating /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index/resource_index/packages
+[0.871s] symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/resource/basic_comms -> /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index/resource_index/packages
+[0.871s] symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/package.xml -> /home/idmx/ros2_ws_2/install/basic_comms/share/basic_comms
+[0.903s] Invoked command in '/home/idmx/ros2_ws_2/build/basic_comms' returned '0': PYTHONPATH=/home/idmx/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/basic_comms/build --no-deps symlink_data

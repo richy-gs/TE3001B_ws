@@ -1,0 +1,25 @@
+[0.618s] Invoking command in '/home/idmx/ros2_ws_2/build/motor_control': PYTHONPATH=/home/idmx/ros2_ws_2/build/motor_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/motor_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/motor_control/build --no-deps symlink_data --force
+[0.807s] running develop
+[0.920s] running egg_info
+[0.920s] writing motor_control.egg-info/PKG-INFO
+[0.921s] writing dependency_links to motor_control.egg-info/dependency_links.txt
+[0.921s] writing entry points to motor_control.egg-info/entry_points.txt
+[0.921s] writing requirements to motor_control.egg-info/requires.txt
+[0.921s] writing top-level names to motor_control.egg-info/top_level.txt
+[0.922s] reading manifest file 'motor_control.egg-info/SOURCES.txt'
+[0.923s] writing manifest file 'motor_control.egg-info/SOURCES.txt'
+[0.924s] running build_ext
+[0.924s] Creating /home/idmx/ros2_ws_2/install/motor_control/lib/python3.10/site-packages/motor-control.egg-link (link to .)
+[0.925s] Installing ctrl script to /home/idmx/ros2_ws_2/install/motor_control/lib/motor_control
+[0.925s] Installing dc_motor script to /home/idmx/ros2_ws_2/install/motor_control/lib/motor_control
+[0.925s] Installing set_point script to /home/idmx/ros2_ws_2/install/motor_control/lib/motor_control
+[0.925s] 
+[0.925s] Installed /home/idmx/ros2_ws_2/build/motor_control
+[0.925s] running symlink_data
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/resource/motor_control -> /home/idmx/ros2_ws_2/install/motor_control/share/ament_index/resource_index/packages
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/package.xml -> /home/idmx/ros2_ws_2/install/motor_control/share/motor_control
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/launch/motor_launch.py -> /home/idmx/ros2_ws_2/install/motor_control/share/motor_control/launch
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/launch/motor_3_launch.py -> /home/idmx/ros2_ws_2/install/motor_control/share/motor_control/launch
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/launch/motor_2_launch.py -> /home/idmx/ros2_ws_2/install/motor_control/share/motor_control/launch
+[0.925s] symbolically linking /home/idmx/ros2_ws_2/build/motor_control/config/params.yaml -> /home/idmx/ros2_ws_2/install/motor_control/share/motor_control/config
+[0.958s] Invoked command in '/home/idmx/ros2_ws_2/build/motor_control' returned '0': PYTHONPATH=/home/idmx/ros2_ws_2/build/motor_control/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/idmx/ros2_ws_2/install/motor_control/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/idmx/ros2_ws_2/build/motor_control/build --no-deps symlink_data --force

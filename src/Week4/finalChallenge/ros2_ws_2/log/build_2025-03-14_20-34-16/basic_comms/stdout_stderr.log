@@ -1,0 +1,26 @@
+running egg_info
+creating ../../build/basic_comms/basic_comms.egg-info
+writing ../../build/basic_comms/basic_comms.egg-info/PKG-INFO
+writing dependency_links to ../../build/basic_comms/basic_comms.egg-info/dependency_links.txt
+writing entry points to ../../build/basic_comms/basic_comms.egg-info/entry_points.txt
+writing requirements to ../../build/basic_comms/basic_comms.egg-info/requires.txt
+writing top-level names to ../../build/basic_comms/basic_comms.egg-info/top_level.txt
+writing manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+reading manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+writing manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build
+creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib
+creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+copying basic_comms/talker.py -> /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+copying basic_comms/__init__.py -> /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+running install
+running install_lib
+running install_data
+running install_egg_info
+removing '/home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic_comms-0.0.0-py3.10.egg-info' (and everything under it)
+Copying ../../build/basic_comms/basic_comms.egg-info to /home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic_comms-0.0.0-py3.10.egg-info
+running install_scripts
+Installing talker script to /home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/basic_comms
+writing list of installed files to '/home/roli_005/Downloads/ros2_ws_2/build/basic_comms/install.log'

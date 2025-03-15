@@ -1,0 +1,26 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from custom_interfaces/srv/SetProcessBool.srv
+// generated code does not contain a copyright notice
+
+
+module custom_interfaces {
+  module srv {
+    @verbatim (language="comment", text=
+      "This is aservice to set a boolean value." "\n"
+      "This can be used for starting a process ")
+    struct SetProcessBool_Request {
+      @verbatim (language="comment", text=
+        "e.g. for hardware enabling / disabling")
+      boolean enable;
+    };
+    struct SetProcessBool_Response {
+      @verbatim (language="comment", text=
+        "indicate successful run of triggered service")
+      boolean success;
+
+      @verbatim (language="comment", text=
+        "informational, e.g. for error messages")
+      string message;
+    };
+  };
+};

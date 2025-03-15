@@ -1,0 +1,6 @@
+{
+  "package_name": "custom_interfaces",
+  "non_idl_tuples": [
+    "/home/roli_005/Downloads/ros2_ws_2/src/custom_interfaces:srv/SetProcessBool.srv"
+  ]
+}

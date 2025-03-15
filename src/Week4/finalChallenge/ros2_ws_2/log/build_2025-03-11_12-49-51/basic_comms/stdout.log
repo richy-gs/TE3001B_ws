@@ -1,0 +1,17 @@
+running develop
+running egg_info
+writing basic_comms.egg-info/PKG-INFO
+writing dependency_links to basic_comms.egg-info/dependency_links.txt
+writing entry points to basic_comms.egg-info/entry_points.txt
+writing requirements to basic_comms.egg-info/requires.txt
+writing top-level names to basic_comms.egg-info/top_level.txt
+reading manifest file 'basic_comms.egg-info/SOURCES.txt'
+writing manifest file 'basic_comms.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/idmx/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic-comms.egg-link (link to .)
+Installing talker script to /home/idmx/ros2_ws_2/install/basic_comms/lib/basic_comms
+
+Installed /home/idmx/ros2_ws_2/build/basic_comms
+running symlink_data
+symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/resource/basic_comms -> /home/idmx/ros2_ws_2/install/basic_comms/share/ament_index/resource_index/packages
+symbolically linking /home/idmx/ros2_ws_2/build/basic_comms/package.xml -> /home/idmx/ros2_ws_2/install/basic_comms/share/basic_comms

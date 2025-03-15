@@ -1,0 +1,28 @@
+[1.210s] Invoking command in '/home/roli_005/Downloads/ros2_ws_2/src/basic_comms': PYTHONPATH=/home/roli_005/Downloads/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/basic_comms build --build-base /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build install --record /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/install.log --single-version-externally-managed install_data
+[1.529s] running egg_info
+[1.530s] creating ../../build/basic_comms/basic_comms.egg-info
+[1.530s] writing ../../build/basic_comms/basic_comms.egg-info/PKG-INFO
+[1.530s] writing dependency_links to ../../build/basic_comms/basic_comms.egg-info/dependency_links.txt
+[1.530s] writing entry points to ../../build/basic_comms/basic_comms.egg-info/entry_points.txt
+[1.530s] writing requirements to ../../build/basic_comms/basic_comms.egg-info/requires.txt
+[1.530s] writing top-level names to ../../build/basic_comms/basic_comms.egg-info/top_level.txt
+[1.530s] writing manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+[1.532s] reading manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+[1.533s] writing manifest file '../../build/basic_comms/basic_comms.egg-info/SOURCES.txt'
+[1.533s] running build
+[1.533s] running build_py
+[1.533s] creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build
+[1.533s] creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib
+[1.533s] creating /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+[1.533s] copying basic_comms/talker.py -> /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+[1.533s] copying basic_comms/__init__.py -> /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build/lib/basic_comms
+[1.533s] running install
+[1.534s] running install_lib
+[1.535s] running install_data
+[1.535s] running install_egg_info
+[1.538s] removing '/home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic_comms-0.0.0-py3.10.egg-info' (and everything under it)
+[1.538s] Copying ../../build/basic_comms/basic_comms.egg-info to /home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages/basic_comms-0.0.0-py3.10.egg-info
+[1.538s] running install_scripts
+[1.562s] Installing talker script to /home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/basic_comms
+[1.562s] writing list of installed files to '/home/roli_005/Downloads/ros2_ws_2/build/basic_comms/install.log'
+[1.583s] Invoked command in '/home/roli_005/Downloads/ros2_ws_2/src/basic_comms' returned '0': PYTHONPATH=/home/roli_005/Downloads/ros2_ws_2/build/basic_comms/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/roli_005/Downloads/ros2_ws_2/install/basic_comms/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/basic_comms build --build-base /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/build install --record /home/roli_005/Downloads/ros2_ws_2/build/basic_comms/install.log --single-version-externally-managed install_data
